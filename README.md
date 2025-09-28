@@ -87,3 +87,53 @@ Incluiremos dentro de las dependencias de Maven los 'webjars' de jQuery y Bootst
 
 
 3. En el elemento `<head>` de la página, agregamos las referencias a las librerías de jQuery, Bootstrap y a la hoja de estilos de Bootstrap:
+   ``` html
+   <head>
+       <title>Blueprints</title>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+       <script src="/webjars/jquery/jquery.min.js"></script>
+       <script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+       <link rel="stylesheet"
+             href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+   </head>
+   ```
+   
+   **Desarrollo:** Aprovechado que realizamos esta modificación, agrupamos todo dentro de un contenedor y aplicamos clases de Bootstrap. Dejando la clase de la forma:
+
+   ``` html
+   <body class="container mt-4">
+   <h1 class="mb-4">Blueprints</h1>
+   
+   <!-- Campo de autor -->
+   <div class="form-inline mb-3">
+       <label for="authorInput" class="mr-2">Author: </label>
+       <input type="text" id="authorInput" class="form-control mr-2" placeholder="Enter author name">
+       <button id="getBlueprintsBtn" class="btn btn-primary">Get blueprints</button>
+   </div>
+   
+   <!-- Autor seleccionado -->
+   <h2 id="selectedAuthor" class="mb-3"></h2>
+   
+   <!-- Tabla de planos -->
+   <table class="table table-striped table-bordered w-75">
+       <thead class="thead-dark">
+       <tr>
+           <th>Blueprint name</th>
+           <th>Number of points</th>
+           <th>Action</th>
+       </tr>
+       </thead>
+       <tbody id="blueprintsTable">
+       </tbody>
+   </table>
+   
+   <!-- Total de puntos -->
+   <p class="font-weight-bold">Total user points: <span id="totalPoints">0</span></p>
+   </body>
+   ```
+
+   ![img.png](img/index2.png)
+
+
