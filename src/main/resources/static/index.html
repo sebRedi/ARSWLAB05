@@ -1,1 +1,35 @@
-<h1>Funciona</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blueprints</title>
+</head>
+<body>
+<h1>Blueprints</h1>
+
+<!-- Espacio para el campo para ingresar el autor -->
+<label for="authorInput">Author: </label>
+<input type="text" id="authorInput" placeholder="Enter author name">
+<button id="getBlueprintsBtn">Get blueprints</button>
+
+<!-- Espacio para el nombre de autor del autor seleccionado -->
+<h2 id="selectedAuthor"></h2>
+
+<!-- Espacio para la tabla de planos -->
+<table border="1" id="blueprintsTable">
+    <thead>
+    <tr>
+        <th>Blueprint name</th>
+        <th>Number of points</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Espacio para agregar dinámicamente los planos -->
+    </tbody>
+</table>
+
+<!-- Espacio para el total de puntos -->
+<p>Total user points: <span id="totalPoints">0</span></p>
+</body>
+</html>

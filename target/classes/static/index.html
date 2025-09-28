@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blueprints</title>
+</head>
+<body>
+<h1>Blueprints</h1>
+
+<!-- Campo para ingresar el autor -->
+<label for="authorInput">Author: </label>
+<input type="text" id="authorInput" placeholder="Enter author name">
+<button id="getBlueprintsBtn">Get blueprints</button>
+
+<!-- Nombre del autor seleccionado -->
+<h2 id="selectedAuthor"></h2>
+
+<!-- Tabla de planos -->
+<table border="1" id="blueprintsTable">
+    <thead>
+    <tr>
+        <th>Blueprint name</th>
+        <th>Number of points</th>
+        <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Aquí se agregarán dinámicamente los planos -->
+    </tbody>
+</table>
+
+<!-- Total de puntos -->
+<p>Total user points: <span id="totalPoints">0</span></p>
+</body>
+</html>

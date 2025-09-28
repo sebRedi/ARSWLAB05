@@ -16,6 +16,7 @@ Incluiremos dentro de las dependencias de Maven los 'webjars' de jQuery y Bootst
 <dependency>
     <groupId>org.webjars</groupId>
     <artifactId>webjars-locator</artifactId>
+    <version>0.46</version>
 </dependency>
 
 <dependency>
@@ -40,9 +41,47 @@ Incluiremos dentro de las dependencias de Maven los 'webjars' de jQuery y Bootst
 
 2. Cree, en el directorio anterior, la página index.html, sólo con lo básico: título, campo para la captura del autor, botón de 'Get blueprints', campo donde se mostrará el nombre del autor seleccionado, la tabla HTML donde se mostrará el listado de planos (con sólo los encabezados), y un campo donde se mostrará el total de puntos de los planos del autor. Recuerde asociarle identificadores a dichos componentes para facilitar su búsqueda mediante selectores.
 
+   **Desarrollo:** Tal y como se pide, hacemos el siguiente ***index.html*** con lo simple, asociando identificadores a cada componente:
+   ``` html
+   <!DOCTYPE html>
+   <html lang="en">
+   <head>
+       <meta charset="UTF-8">
+       <title>Blueprints</title>
+   </head>
+   <body>
+   <h1>Blueprints</h1>
+   
+   <!-- Espacio para el campo para ingresar el autor -->
+   <label for="authorInput">Author: </label>
+   <input type="text" id="authorInput" placeholder="Enter author name">
+   <button id="getBlueprintsBtn">Get blueprints</button>
+   
+   <!-- Espacio para el nombre de autor del autor seleccionado -->
+   <h2 id="selectedAuthor"></h2>
+   
+   <!-- Espacio para la tabla de planos -->
+   <table border="1" id="blueprintsTable">
+       <thead>
+       <tr>
+           <th>Blueprint name</th>
+           <th>Number of points</th>
+           <th>Action</th>
+       </tr>
+       </thead>
+       <tbody>
+       <!-- Espacio para agregar dinámicamente los planos -->
+       </tbody>
+   </table>
+   
+   <!-- Espacio para el total de puntos -->
+   <p>Total user points: <span id="totalPoints">0</span></p>
+   </body>
+   </html>
+   ```
+   **Resultado:**
+   ![img.png](img/index1.png)
+   Como puede verse, el archivo está plano, sin estilos todavía. Así que el navegador por defecto muestra todo con tipografía pequeña, sin márgenes ni separación.
 
 
-
-
-
-
+3. En el elemento `<head>` de la página, agregamos las referencias a las librerías de jQuery, Bootstrap y a la hoja de estilos de Bootstrap:
