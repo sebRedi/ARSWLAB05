@@ -82,6 +82,7 @@ Incluiremos dentro de las dependencias de Maven los 'webjars' de jQuery y Bootst
    **Resultado:**
 
    ![img.png](img/index1.png)
+
    Como puede verse, el archivo está plano, sin estilos todavía. Así que el navegador por defecto muestra todo con tipografía pequeña, sin márgenes ni separación.
 
 
