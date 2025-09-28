@@ -133,6 +133,8 @@ Incluiremos dentro de las dependencias de Maven los 'webjars' de jQuery y Bootst
    <p class="font-weight-bold">Total user points: <span id="totalPoints">0</span></p>
    </body>
    ```
+   
+   **Resultado:**
 
    ![img.png](img/index2.png)
 
