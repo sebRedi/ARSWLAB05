@@ -139,3 +139,19 @@ Incluiremos dentro de las dependencias de Maven los 'webjars' de jQuery y Bootst
    ![img.png](img/index2.png)
 
 
+4. Suba la aplicación (mvn spring-boot:run), y rectifique:
+
+   1. Que la página sea accesible desde:
+   ```
+   http://localhost:8080/index.html
+   ```
+   2. Al abrir la consola de desarrollador del navegador, NO deben aparecer mensajes de error 404 (es decir, que las librerías de JavaScript se cargaron correctamente). Front-End - Lógica
+   
+   **Desarrollo:** Tras llevar a cabo este procedimiento, vemos que es accesible mediante el enlace solicitado y no se genera ningún error.
+
+
+## Front-End - Lógica
+
+1. Ahora, va a crear un Módulo JavaScript que, a manera de controlador, mantenga los estados y ofrezca las operaciones requeridas por la vista. Para esto tenga en cuenta el patrón Módulo de JavaScript, y cree un módulo en la ruta ***static/js/app.js*** .
+
+
