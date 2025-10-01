@@ -233,7 +233,6 @@ Incluiremos dentro de las dependencias de Maven los 'webjars' de jQuery y Bootst
        mockdata["johnconnor"]=[
            {author:"johnconnor","points":[{"x":150,"y":120},{"x":215,"y":115}],"name":"house"},
            {author:"johnconnor","points":[{"x":340,"y":240},{"x":15,"y":215}],"name":"gear"},
-           // 🔹 Nuevo plano con más puntos
            {author:"johnconnor","points":[
                    {"x":50,"y":60},{"x":70,"y":80},{"x":90,"y":100},
                    {"x":120,"y":140},{"x":160,"y":180}
@@ -243,7 +242,6 @@ Incluiremos dentro de las dependencias de Maven los 'webjars' de jQuery y Bootst
        mockdata["maryweyland"]=[
            {author:"maryweyland","points":[{"x":140,"y":140},{"x":115,"y":115}],"name":"house2"},
            {author:"maryweyland","points":[{"x":140,"y":140},{"x":115,"y":115}],"name":"gear2"},
-           // 🔹 Otro plano con más puntos
            {author:"maryweyland","points":[
                    {"x":200,"y":200},{"x":220,"y":240},{"x":260,"y":200},
                    {"x":300,"y":250},{"x":340,"y":220},{"x":380,"y":260}
@@ -352,10 +350,22 @@ Incluiremos dentro de las dependencias de Maven los 'webjars' de jQuery y Bootst
    
    **Desarrollo:** Antes de hacer la prueba es muy importante tener en cuenta que los datos mockeados, lógicamente, no están en el backend, así que será necesario cambiar la línea
    ``` js
+   (35) return $.get("/blueprints/" + _author, function (data) {
    ```
+   por
+   ``` js
+   return apimock.getBlueprintsByAuthor(_author, function (data) {
+   ```
+   
+   Antes de proceder con la prueba, agregaremos el siguiente canvas justo antes del bloque creado en ***index.html***:
 
+   ``` html
+   <!-- Canvas para dibujar -->
+   <canvas id="blueprintCanvas" width="500" height="500" style="border:1px solid black;"></canvas>
+   ```
+   
+   Una vez contamos con esto, realizamos la prueba:
 
-
-
+   ![img.png](img/result1.png)
 
 
