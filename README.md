@@ -371,7 +371,70 @@ Incluiremos dentro de las dependencias de Maven los 'webjars' de jQuery y Bootst
 
 ## Toques finales
 Para obtener un diseño más fiel al mockup proporcionado al inicio del laboratorio, modificamos el ***index.html*** de la forma:
+``` html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Blueprints</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <script src="/webjars/jquery/3.1.0/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+
+    <!-- Módulos de la aplicación -->
+    <script src="js/apimock.js"></script>
+    <script src="js/app.js"></script>
+</head>
+<body class="container mt-4">
+<h1 class="mb-4">Blueprints</h1>
+
+<!-- Campo de autor -->
+<div class="form-inline mb-4">
+    <label for="authorInput" class="mr-2 font-weight-bold">Author: </label>
+    <input type="text" id="authorInput" class="form-control mr-2" placeholder="Enter author name">
+    <button id="getBlueprintsBtn" class="btn btn-primary">Get blueprints</button>
+</div>
+
+<div class="row">
+    <!-- Columna izquierda: lista de planos -->
+    <div class="col-md-6">
+        <h4><span id="selectedAuthor"></span>'s blueprints:</h4>
+        <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
+            <tr>
+                <th>Blueprint name</th>
+                <th>Number of points</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody id="blueprintsTable">
+            </tbody>
+        </table>
+        <p class="font-weight-bold">Total user points: <span id="totalPoints">0</span></p>
+    </div>
+
+    <!-- Columna derecha: blueprint actual -->
+    <div class="col-md-6">
+        <h4>Current blueprint: <span id="currentBlueprint">None</span></h4>
+        <canvas id="blueprintCanvas" width="500" height="500" style="border:1px solid black;"></canvas>
+    </div>
+</div>
+
+<!-- Asociación del evento al botón -->
+<script>
+    $(document).ready(function () {
+        $("#getBlueprintsBtn").click(function () {
+            var author = $("#authorInput").val();
+            app.setAuthor(author);
+            app.getBlueprints();
+        });
+    });
+</script>
+</body>
+</html>
+```
 
 **Resultado:**
 ![img.png](img/finalResult.png)
