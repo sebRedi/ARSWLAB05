@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <!-- WebJars con versión explícita -->
     <script src="/webjars/jquery/3.1.0/jquery.min.js"></script>
     <script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
@@ -17,33 +18,36 @@
 <h1 class="mb-4">Blueprints</h1>
 
 <!-- Campo de autor -->
-<div class="form-inline mb-3">
-    <label for="authorInput" class="mr-2">Author: </label>
+<div class="form-inline mb-4">
+    <label for="authorInput" class="mr-2 font-weight-bold">Author: </label>
     <input type="text" id="authorInput" class="form-control mr-2" placeholder="Enter author name">
     <button id="getBlueprintsBtn" class="btn btn-primary">Get blueprints</button>
 </div>
 
-<!-- Autor seleccionado -->
-<h2 id="selectedAuthor" class="mb-3"></h2>
+<div class="row">
+    <!-- Columna izquierda: lista de planos -->
+    <div class="col-md-6">
+        <h4><span id="selectedAuthor"></span>'s blueprints:</h4>
+        <table class="table table-striped table-bordered">
+            <thead class="thead-dark">
+            <tr>
+                <th>Blueprint name</th>
+                <th>Number of points</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody id="blueprintsTable">
+            </tbody>
+        </table>
+        <p class="font-weight-bold">Total user points: <span id="totalPoints">0</span></p>
+    </div>
 
-<!-- Tabla de planos -->
-<table class="table table-striped table-bordered w-75">
-    <thead class="thead-dark">
-    <tr>
-        <th>Blueprint name</th>
-        <th>Number of points</th>
-        <th>Action</th>
-    </tr>
-    </thead>
-    <tbody id="blueprintsTable">
-    </tbody>
-</table>
-
-<!-- Total de puntos -->
-<p class="font-weight-bold">Total user points: <span id="totalPoints">0</span></p>
-
-<!-- Canvas para dibujar -->
-<canvas id="blueprintCanvas" width="500" height="500" style="border:1px solid black;"></canvas>
+    <!-- Columna derecha: blueprint actual -->
+    <div class="col-md-6">
+        <h4>Current blueprint: <span id="currentBlueprint">None</span></h4>
+        <canvas id="blueprintCanvas" width="500" height="500" style="border:1px solid black;"></canvas>
+    </div>
+</div>
 
 <!-- Asociación del evento al botón -->
 <script>
@@ -55,6 +59,5 @@
         });
     });
 </script>
-
 </body>
 </html>

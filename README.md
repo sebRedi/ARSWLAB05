@@ -369,3 +369,12 @@ Incluiremos dentro de las dependencias de Maven los 'webjars' de jQuery y Bootst
    ![img.png](img/result1.png)
 
 
+## Toques finales
+Para obtener un diseño más fiel al mockup proporcionado al inicio del laboratorio, modificamos el ***index.html*** de la forma:
+
+
+**Resultado:**
+![img.png](img/finalResult.png)
+
+
+
