@@ -9,6 +9,8 @@
     <script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet"
           href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script src="js/apimock.js"></script>
+    <script src="js/app.js"></script>
 </head>
 <body class="container mt-4">
 <h1 class="mb-4">Blueprints</h1>
@@ -38,6 +40,18 @@
 
 <!-- Total de puntos -->
 <p class="font-weight-bold">Total user points: <span id="totalPoints">0</span></p>
+
+<!-- Asociación del evento al botón -->
+<script>
+    $(document).ready(function () {
+        $("#getBlueprintsBtn").click(function () {
+            var author = $("#authorInput").val();
+            app.setAuthor(author);
+            app.getBlueprints();
+        });
+    });
+</script>
+
 </body>
 
 </html>
