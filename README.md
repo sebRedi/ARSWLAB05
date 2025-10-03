@@ -439,5 +439,3 @@ Para obtener un diseño más fiel al mockup proporcionado al inicio del laborato
 **Resultado:**
 ![img.png](img/finalResult.png)
 
-
-

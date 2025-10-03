@@ -1,4 +1,7 @@
+// @author sebastianGalvis
+
 var app = (function () {
+    var dataSource = apimock; // apiclient || apimock
     // Estado privado
     var _author = null;
     var _blueprints = [];
@@ -32,7 +35,15 @@ var app = (function () {
         },
 
         getBlueprints: function () {
-            return apimock.getBlueprintsByAuthor(_author, function (data) {
+            return dataSource.getBlueprintsByAuthor(_author, function (data) {
+                if (!data || data.length === 0) {
+                    // si no hay planos
+                    $("#blueprintsTable").empty();
+                    $("#totalPoints").text(0);
+                    $("#selectedAuthor").text(_author + " (sin planos)");
+                    return;
+                }
+
                 _blueprints = data;
                 $("#selectedAuthor").text(_author);
 
@@ -41,22 +52,24 @@ var app = (function () {
                 table.empty();
                 data.forEach(bp => {
                     var row = `<tr>
-                        <td>${bp.name}</td>
-                        <td>${bp.points.length}</td>
-                        <td><button class="btn btn-info" onclick="app.openBlueprint('${bp.name}')">Open</button></td>
-                    </tr>`;
+                <td>${bp.name}</td>
+                <td>${bp.points.length}</td>
+                <td><button class="btn btn-info" onclick="app.openBlueprint('${bp.name}')">Open</button></td>
+            </tr>`;
                     table.append(row);
                 });
 
-                $("#totalPoints").text(_calculateTotalPoints());
+                $("#totalPoints").text(_blueprints.map(bp => bp.points.length).reduce((a, b) => a + b, 0));
             });
         },
 
         openBlueprint: function (bpName) {
-            var bp = _blueprints.find(b => b.name === bpName);
-            if (bp) {
-                _drawBlueprint(bp);
-            }
+            dataSource.getBlueprintsByNameAndAuthor(_author, bpName, function (bp) {
+                if (bp) {
+                    $("#currentBlueprint").text(bp.name);
+                    _drawBlueprint(bp);
+                }
+            });
         }
     };
 })();
