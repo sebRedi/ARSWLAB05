@@ -439,3 +439,12 @@ Para obtener un diseño más fiel al mockup proporcionado al inicio del laborato
 **Resultado:**
 ![img.png](img/finalResult.png)
 
+
+## Conclusiones:
+El desarrollo de un cliente grueso  permitió comprender cómo conectar una interfaz web con un API REST ya existente, logrando así la separación de responsabilidades entre el backend y el frontend.
+
+El uso del patrón módulo en JavaScript fue clave para mantener el estado de la aplicación encapsulado (autor actual, planos y puntos), exponiendo únicamente las operaciones necesarias hacia la vista y evitando problemas de variables globales.
+
+La inclusión de WebJars (jQuery y Bootstrap) facilitó la construcción de una interfaz más ordenada, responsiva y cercana al mockup proporcionado, mostrando la importancia de las librerías externas para agilizar el diseño y mejorar la experiencia de usuario.
+
+La implementación del módulo apimock permitió simular el funcionamiento de la aplicación sin necesidad de un backend activo. Posteriormente, con el módulo apiclient, se logró la conexión con datos reales provenientes del API REST.
